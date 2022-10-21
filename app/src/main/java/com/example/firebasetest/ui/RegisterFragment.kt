@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.firebasetest.R
 import com.example.firebasetest.databinding.FragmentLoginBinding
 import com.example.firebasetest.databinding.FragmentRegisterBinding
+import com.example.firebasetest.models.User
 import com.example.firebasetest.utils.NavigationManager
 import com.example.firebasetest.viewmodel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +39,8 @@ class RegisterFragment : Fragment() {
 
         binding.buttonRegister.setOnClickListener {
             if (binding.editPasswordRegister.text.toString().equals(binding.editConfirmPassword.text.toString())){
+                val user = User(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
+                viewModel.writeData(user)
                 registerUser(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
             } else {
                 binding.editConfirmPassword.error = "Please, confirm your password"

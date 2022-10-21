@@ -1,14 +1,16 @@
 package com.example.firebasetest.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.firebasetest.R
 import com.example.firebasetest.databinding.FragmentFirstBinding
 import com.example.firebasetest.utils.NavigationManager
+
 
 class FirstFragment : Fragment() {
 
@@ -21,13 +23,16 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Click to go to Login screen
         binding.buttonFirstLogin.setOnClickListener {
             activity?.supportFragmentManager?.let { NavigationManager.goToLoginMenu(it) }
         }
 
+        //Click to go to Register screen
         binding.buttonFirstRegister.setOnClickListener {
             activity?.supportFragmentManager?.let { NavigationManager.goToRegisterMenu(it) }
         }

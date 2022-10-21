@@ -50,7 +50,7 @@
             app:cornerRadius="10dp">
 
         </com.google.android.material.button.MaterialButton>
-
+        <!--
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_sign_up"
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
             android:text="Sign Up"
             app:cornerRadius="10dp">
 
-        </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton> -->
     </LinearLayout>
 
 </FrameLayout>
