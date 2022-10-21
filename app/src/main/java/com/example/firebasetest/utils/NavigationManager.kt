@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import com.example.firebasetest.R
 import com.example.firebasetest.ui.HomeFragment
 import com.example.firebasetest.ui.LoginFragment
+import com.example.firebasetest.ui.RegisterFragment
 
 object NavigationManager {
 
@@ -15,11 +16,15 @@ object NavigationManager {
         transition.commit()
     }
 
-    fun goToMainMenu(fm: FragmentManager){
+    fun goToHomeMenu(fm: FragmentManager){
         placeFragment(fm, HomeFragment())
     }
 
     fun goToLoginMenu(fm: FragmentManager){
         placeFragment(fm, LoginFragment())
+    }
+
+    fun goToRegisterMenu(fm: FragmentManager){
+        placeFragment(fm, RegisterFragment())
     }
 }
