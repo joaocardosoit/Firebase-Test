@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebasetest.R
+import com.example.firebasetest.databinding.FragmentHomeBinding
 import com.example.firebasetest.databinding.FragmentLoginBinding
 import com.example.firebasetest.viewmodel.UserViewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        binding = FragmentLoginBinding.bind(view)
+        binding = FragmentHomeBinding.bind(view)
         return binding.root
     }
 

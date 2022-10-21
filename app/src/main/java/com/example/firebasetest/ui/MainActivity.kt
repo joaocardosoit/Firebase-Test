@@ -18,13 +18,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         auth = Firebase.auth
     }
 
     override fun onStart() {
         super.onStart()
-        NavigationManager.goToLoginMenu(supportFragmentManager)
+        NavigationManager.goToFirstMenu(supportFragmentManager)
         val currentUser = auth.currentUser
         if (currentUser != null){
             reload()

@@ -3,6 +3,7 @@ package com.example.firebasetest.utils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.firebasetest.R
+import com.example.firebasetest.ui.FirstFragment
 import com.example.firebasetest.ui.HomeFragment
 import com.example.firebasetest.ui.LoginFragment
 import com.example.firebasetest.ui.RegisterFragment
@@ -14,6 +15,10 @@ object NavigationManager {
         transition.replace(R.id.frame, fragment)
         transition.addToBackStack(null)
         transition.commit()
+    }
+
+    fun goToFirstMenu(fm: FragmentManager){
+        placeFragment(fm, FirstFragment())
     }
 
     fun goToHomeMenu(fm: FragmentManager){
