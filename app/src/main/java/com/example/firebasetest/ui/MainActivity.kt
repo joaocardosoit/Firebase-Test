@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        NavigationManager.goToMainMenu(supportFragmentManager)
+        NavigationManager.goToLoginMenu(supportFragmentManager)
         val currentUser = auth.currentUser
         if (currentUser != null){
             reload()
