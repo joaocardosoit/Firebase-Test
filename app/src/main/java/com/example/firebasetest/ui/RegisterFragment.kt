@@ -40,7 +40,7 @@ class RegisterFragment : Fragment() {
         binding.buttonRegister.setOnClickListener {
             if (binding.editPasswordRegister.text.toString().equals(binding.editConfirmPassword.text.toString())){
                 val user = User(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
-                viewModel.writeData(user)
+                //viewModel.writeData(user)
                 registerUser(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
             } else {
                 binding.editConfirmPassword.error = "Please, confirm your password"
@@ -58,7 +58,7 @@ class RegisterFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(MainActivity()){ task ->
                     if (task.isSuccessful){
-                        activity?.supportFragmentManager?.let { NavigationManager.goToRegisterMenu(it) }
+                        activity?.supportFragmentManager?.let { NavigationManager.goToHomeMenu(it) }
                         Toast.makeText(activity, "User add sucessfully", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(activity, task.exception!!.message, Toast.LENGTH_SHORT).show()

@@ -42,9 +42,15 @@ class LoginFragment : Fragment(),  UsersListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         (activity as AppCompatActivity).supportActionBar?.show()
         (activity as AppCompatActivity).supportActionBar?.title = "Welcome"
         context?.let { viewModel.registerListener(this, it) }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        auth = Firebase.auth
 
         //Verify if user is authenticated
         val currentUser = auth.currentUser
@@ -56,17 +62,6 @@ class LoginFragment : Fragment(),  UsersListener{
         binding.buttonLogin.setOnClickListener{
             signUser(binding.editEmail.text.toString(), binding.editPassword.text.toString())
         }
-
-
-        /*binding.buttonSignUp.setOnClickListener {
-            activity?.supportFragmentManager?.let { NavigationManager.goToRegisterMenu(it) }
-        }*/
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        auth = Firebase.auth
     }
 
     //Throw user info to firebase db
