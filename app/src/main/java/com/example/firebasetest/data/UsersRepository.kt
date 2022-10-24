@@ -7,6 +7,7 @@ import com.example.firebasetest.listeners.UsersListener
 import com.example.firebasetest.models.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
@@ -19,9 +20,9 @@ class UsersRepository {
 
     //Write a user in database
     fun writeInDatabase(user: User){
-        myRef.child("Users").child("email").setValue(user.email)
-        myRef.child("Users").child("password").setValue(user.password)
-
+        myRef.child("Users").setValue("")
+        myRef.child("Users").child("user").child("email").setValue(user.email)
+        myRef.child("Users").child("user").child("password").setValue(user.password)
     }
 
     //Read all data values
@@ -37,6 +38,7 @@ class UsersRepository {
             }
         })
     }
+
 
     fun registerListener(listener: UsersListener, context: Context){
         this.listener = listener

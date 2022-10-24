@@ -12,6 +12,7 @@ import com.example.firebasetest.R
 import com.example.firebasetest.databinding.FragmentHomeBinding
 import com.example.firebasetest.databinding.FragmentLoginBinding
 import com.example.firebasetest.listeners.UsersListener
+import com.example.firebasetest.models.User
 import com.example.firebasetest.viewmodel.UserViewModel
 
 class HomeFragment : Fragment(), UsersListener {
@@ -33,8 +34,7 @@ class HomeFragment : Fragment(), UsersListener {
         context?.let { viewmodel.registerListener(this, it) }
 
         binding.buttonRead.setOnClickListener {
-            viewmodel.readData()
+            binding.textEmail.text = viewmodel.readData().toString()
         }
     }
-
 }
