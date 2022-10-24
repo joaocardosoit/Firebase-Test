@@ -54,9 +54,9 @@ class LoginFragment : Fragment(),  UsersListener{
 
         //Verify if user is authenticated
         val currentUser = auth.currentUser
-        if (currentUser != null){
+        /*if (currentUser != null){
             activity?.supportFragmentManager?.let { NavigationManager.goToHomeMenu(it) }
-        }
+        }*/
 
         //User goes on
         binding.buttonLogin.setOnClickListener{

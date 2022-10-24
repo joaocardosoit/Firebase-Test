@@ -15,11 +15,13 @@ import com.google.firebase.ktx.Firebase
 class UsersRepository {
     private var listener: UsersListener? = null
     val database = Firebase.database
-    val myRef = database.getReference("https://console.firebase.google.com/project/fir-test-a167c/firestore/data/~2FUsers~2F6fsXL5m7wQ6JdKcD62r4")
+    val myRef = database.getReferenceFromUrl("https://fir-test-a167c-default-rtdb.firebaseio.com/")
 
     //Write a user in database
     fun writeInDatabase(user: User){
-        myRef.setValue(user)
+        myRef.child("Users").child("email").setValue(user.email)
+        myRef.child("Users").child("password").setValue(user.password)
+
     }
 
     //Read all data values
