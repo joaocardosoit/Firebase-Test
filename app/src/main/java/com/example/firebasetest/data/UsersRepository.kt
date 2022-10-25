@@ -19,13 +19,14 @@ class UsersRepository {
     private val auth: FirebaseAuth = Firebase.auth
     private var listener: UsersListener? = null
     val database = Firebase.database
-    val myRef = database.getReferenceFromUrl("https://fir-test-a167c-default-rtdb.firebaseio.com/")
+    private val myRef = database.getReferenceFromUrl("https://fir-test-a167c-default-rtdb.firebaseio.com/")
     private val user: FirebaseUser? = auth.currentUser
     private val userId = user?.uid
 
     //Write a user in database
     fun writeInDatabase(user: User){
-        myRef.child("users").child(userId!!).push().setValue(user)
+        user.userId = userId!!
+        myRef.child("users").push().setValue(user)
     }
 
     //Read all data values
