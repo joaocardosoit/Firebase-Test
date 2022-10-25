@@ -70,7 +70,6 @@ class LoginFragment : Fragment(),  UsersListener{
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(MainActivity()){ task ->
                     if(task.isSuccessful){
-                        val user = auth.currentUser
                         activity?.supportFragmentManager?.let { NavigationManager.goToHomeMenu(it) }
                         Toast.makeText(activity, "Login was sucessfully", Toast.LENGTH_SHORT).show()
                     } else {

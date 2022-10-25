@@ -39,7 +39,7 @@ class RegisterFragment : Fragment() {
 
         binding.buttonRegister.setOnClickListener {
             if (binding.editPasswordRegister.text.toString().equals(binding.editConfirmPassword.text.toString())){
-                val user = User(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
+                val user = User(auth.currentUser!!.uid,binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
                 viewModel.writeData(user)
                 registerUser(binding.editEmailRegister.text.toString(), binding.editPasswordRegister.text.toString())
             } else {
